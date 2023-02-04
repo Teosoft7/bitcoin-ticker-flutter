@@ -31,11 +31,11 @@ const List<String> cryptoList = [
 ];
 
 const apiKey = '';
-const apiURL = 'https://rest.coinapi.io/v1/exchangerate/BTC/USD';
+const apiURL = 'https://rest.coinapi.io/v1/exchangerate/BTC';
 
 class CoinData {
-  Future getCoinData() async {
-    NetworkHelper helper = NetworkHelper('$apiURL?apikey=$apiKey');
+  Future getCoinData(String target) async {
+    NetworkHelper helper = NetworkHelper('$apiURL/$target?apikey=$apiKey');
 
     var coinData = await helper.getData();
     return coinData;
